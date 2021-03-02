@@ -27,14 +27,14 @@ Append to /usr/local/nagios/etc/objects/commands.cfg:
 # RECOVERY: SMS on 127.0.0.1@localhost, State: OK, Output: 100, Date: 01-15-2021 12:30:28
 define command {
  command_name notify-service-by-sms
- command_line $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$:$SERVICEDESC$ on $HOSTADDRESS$@$HOSTNAME$, State $SERVICESTATE$, Output: $SERVICEOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
+ command_line python $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$:$SERVICEDESC$ on $HOSTADDRESS$@$HOSTNAME$, State $SERVICESTATE$, Output: $SERVICEOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
 }
 
 # Results in a SMS like:
 # CUSTOM on 127.0.0.1@localhost, State: OK, Output: 100, Date: 01-15-2021 12:30:28
 define command {
  command_name notify-host-by-sms
- command_line $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$ on $HOSTADDRESS$@$HOSTNAME$, State: $HOSTSTATE$, Output: $HOSTOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
+ command_line python $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$ on $HOSTADDRESS$@$HOSTNAME$, State: $HOSTSTATE$, Output: $HOSTOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
 }
 ```
 
@@ -74,5 +74,7 @@ api_key to text
 
 #### Support
 Got stuck? Feel free to [send us an email](mailto:support@sms77.io).
+
+[![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](./LICENSE)
 
 
