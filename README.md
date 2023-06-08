@@ -1,5 +1,4 @@
-![Sms77.io Logo](https://www.sms77.io/wp-content/uploads/2019/07/sms77-Logo-400x79.png "Sms77.io Logo")
-
+![](https://www.seven.io/wp-content/uploads/Logo.svg "seven Logo")
 
 # Official Plugin for [Nagios Core](https://www.nagios.com/products/nagios-core/)
 
@@ -7,7 +6,7 @@
 ## Installation
 1. Make sure Python 2+ is installed on the system.
 
-2. Copy [sms77.py](./sms77.py) to the Nagios plugins directory usually in /usr/local/nagios/libexec.
+2. Copy [seven.py](seven.py) to the Nagios plugins directory usually in /usr/local/nagios/libexec.
 
 ### Usage
 
@@ -27,14 +26,14 @@ Append to /usr/local/nagios/etc/objects/commands.cfg:
 # RECOVERY: SMS on 127.0.0.1@localhost, State: OK, Output: 100, Date: 01-15-2021 12:30:28
 define command {
  command_name notify-service-by-sms
- command_line python $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$:$SERVICEDESC$ on $HOSTADDRESS$@$HOSTNAME$, State $SERVICESTATE$, Output: $SERVICEOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
+ command_line python $USER1$/seven.py MY_SEVEN_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$:$SERVICEDESC$ on $HOSTADDRESS$@$HOSTNAME$, State $SERVICESTATE$, Output: $SERVICEOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
 }
 
 # Results in a SMS like:
 # CUSTOM on 127.0.0.1@localhost, State: OK, Output: 100, Date: 01-15-2021 12:30:28
 define command {
  command_name notify-host-by-sms
- command_line python $USER1$/sms77.py MY_SMS77_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$ on $HOSTADDRESS$@$HOSTNAME$, State: $HOSTSTATE$, Output: $HOSTOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
+ command_line python $USER1$/seven.py MY_SEVEN_API_KEY $CONTACTPAGER$ "$NOTIFICATIONTYPE$ on $HOSTADDRESS$@$HOSTNAME$, State: $HOSTSTATE$, Output: $HOSTOUTPUT$, Date: $SHORTDATETIME$" --from=Nagios
 }
 ```
 
@@ -51,7 +50,7 @@ define service {
 
 Available options:
 ```
-sms77.py 
+seven.py 
 [-h] 
 [--debug]
 [--delay DELAY]
@@ -73,8 +72,8 @@ api_key to text
 
 
 #### Support
-Got stuck? Feel free to [send us an email](mailto:support@sms77.io).
+Got stuck? Feel free to [email us](mailto:support@seven.io).
 
-[![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](./LICENSE)
+[![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
 
 
