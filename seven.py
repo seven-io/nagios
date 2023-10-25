@@ -96,25 +96,31 @@ if __name__ == '__main__':
             terminate('Argument %s must be lengthy!' % k, 3)
 
     headers = {
-        'Authorization': 'Basic %s' % args.pop('api_key'),
-        'SentWith': 'Nagios'
+        'SentWith': 'Nagios',
+        'X-Api-Key': args.pop('api_key')
     }
     url = 'https://gateway.seven.io/api/sms'
 
     ssl_context = SSLContext(PROTOCOL_SSLv23)
 
+    payload = {}
+    for key in args:
+        value = args.get(key)
+        if value is not None:
+            payload[key] = value
+
     if 2 == version:
         from urllib import urlencode
         from urllib2 import Request, urlopen
 
-        req = Request(url, urlencode(args), headers)
+        req = Request(url, urlencode(payload), headers)
         res = urlopen(req, context=ssl_context).read()
     else:
         from urllib.request import Request, urlopen
         from urllib.parse import urlencode
 
         req = urlopen(
-            Request(url, method='POST', headers=headers, data=urlencode(args).encode()),
+            Request(url, method='POST', headers=headers, data=urlencode(payload).encode()),
             context=ssl_context)
         res = req.read()
 
