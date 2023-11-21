@@ -52,7 +52,6 @@ Available options:
 ```
 seven.py 
 [-h] 
-[--debug]
 [--delay DELAY]
 [--details]
 [--flash]

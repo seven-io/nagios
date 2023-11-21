@@ -20,9 +20,6 @@ def bool_arg(obj):
 
 
 optionalArgs = {
-    'debug': bool_arg({
-        'help': 'Disable dispatching'
-    }),
     'delay': {
         'help': 'Dispatch at yyyy-mm-dd hh:ii or timestamp'
     },
