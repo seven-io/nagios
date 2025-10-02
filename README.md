@@ -52,22 +52,16 @@ define service {
 Available options:
 ```
 seven.py 
-[-h] 
-[--delay DELAY]
-[--details]
-[--flash]
-[--foreign_id FOREIGN_ID] 
-[--from FROM] 
-[--json] 
-[--label LABEL] 
-[--no_reload] 
-[--performance_tracking] 
-[--return_msg_id] 
-[--ttl TTL] 
-[--udh UDH] 
-[--unicode]
-[--utf8]
-api_key to text
+    [-h] 
+    [--delay DELAY]
+    [--flash]
+    [--foreign_id FOREIGN_ID] 
+    [--from FROM] 
+    [--label LABEL] 
+    [--performance_tracking] 
+    [--ttl TTL] 
+    [--udh UDH] 
+    api_key to text
 ```
 
 
